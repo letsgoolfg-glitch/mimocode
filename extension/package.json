@@ -1,0 +1,182 @@
+{
+  "name": "mimo-code",
+  "displayName": "MiMoCode — AI Coding Assistant",
+  "description": "Xiaomi MiMo-powered AI assistant with thinking trace, voice commit, and screenshot-to-patch",
+  "version": "0.1.0",
+  "publisher": "mimocode",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["AI", "Programming Languages", "Linters"],
+  "keywords": ["mimo", "xiaomi", "ai", "copilot", "code-assistant", "thinking-trace"],
+  "icon": "media/icon.png",
+  "galleryBanner": { "color": "#0a0a0a", "theme": "dark" },
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "capabilities": {
+    "untrustedWorkspaces": { "supported": true }
+  },
+  "contributes": {
+    "configuration": {
+      "title": "MiMoCode",
+      "properties": {
+        "mimocode.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Xiaomi MiMo API Key (from platform.xiaomimimo.com)"
+        },
+        "mimocode.baseUrl": {
+          "type": "string",
+          "default": "https://token-plan-sgp.xiaomimimo.com/v1",
+          "enum": [
+            "https://token-plan-sgp.xiaomimimo.com/v1",
+            "https://token-plan.xiaomimimo.com/v1",
+            "https://aistudio.xiaomimimo.com/v1"
+          ],
+          "description": "MiMo API base URL"
+        },
+        "mimocode.defaultModel": {
+          "type": "string",
+          "default": "mimo-v2.5-flash",
+          "enum": ["mimo-v2.5-flash", "mimo-v2.5-pro"],
+          "description": "Default model for chat and completions"
+        },
+        "mimocode.enableTTS": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable audio replies via MiMo TTS"
+        },
+        "mimocode.showThinkingTrace": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show hybrid thinking trace in side panel"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "mimocode.chat",
+        "title": "MiMo: Open Chat",
+        "category": "MiMo",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "mimocode.explain",
+        "title": "MiMo: Explain Selection",
+        "category": "MiMo"
+      },
+      {
+        "command": "mimocode.refactor",
+        "title": "MiMo: Refactor Selection",
+        "category": "MiMo"
+      },
+      {
+        "command": "mimocode.voiceCommit",
+        "title": "MiMo: Voice Commit",
+        "category": "MiMo",
+        "icon": "$(microphone)"
+      },
+      {
+        "command": "mimocode.screenshotPatch",
+        "title": "MiMo: Screenshot-to-Patch",
+        "category": "MiMo",
+        "icon": "$(device-camera)"
+      },
+      {
+        "command": "mimocode.thinkingTrace",
+        "title": "MiMo: Show Thinking Trace",
+        "category": "MiMo",
+        "icon": "$(lightbulb)"
+      },
+      {
+        "command": "mimocode.fixError",
+        "title": "MiMo: Fix Diagnostic Error",
+        "category": "MiMo"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "mimocode.explain",
+          "when": "editorHasSelection",
+          "group": "mimocode@1"
+        },
+        {
+          "command": "mimocode.refactor",
+          "when": "editorHasSelection",
+          "group": "mimocode@2"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "mimocode.chat",
+          "group": "navigation@1",
+          "when": "resourceLangId"
+        }
+      ],
+      "commandPalette": [
+        { "command": "mimocode.chat" },
+        { "command": "mimocode.explain", "when": "editorHasSelection" },
+        { "command": "mimocode.refactor", "when": "editorHasSelection" },
+        { "command": "mimocode.voiceCommit" },
+        { "command": "mimocode.screenshotPatch" },
+        { "command": "mimocode.fixError" }
+      ],
+      "view/title": [
+        {
+          "command": "mimocode.chat",
+          "when": "view == mimocode.thinkingTrace",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "mimocode-panel",
+          "title": "MiMo",
+          "icon": "media/mimo.svg"
+        }
+      ]
+    },
+    "views": {
+      "mimocode-panel": [
+        {
+          "id": "mimocode.thinkingTrace",
+          "name": "Thinking Trace",
+          "type": "webview",
+          "when": "mimocode.enabled"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "mimocode.chat",
+        "key": "ctrl+shift+m",
+        "mac": "cmd+shift+m",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "mimocode.voiceCommit",
+        "key": "ctrl+shift+v",
+        "mac": "cmd+shift+v",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npm run compile && npx @vscode/vsce package --allow-missing-repository",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  }
+}

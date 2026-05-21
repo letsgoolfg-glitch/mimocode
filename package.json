@@ -1,0 +1,15 @@
+{
+  "name": "mimocode",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MiMo AI coding assistant for VS Code — thinking trace, voice commit, screenshot-to-patch",
+  "workspaces": ["extension", "web"],
+  "scripts": {
+    "build:ext": "cd extension && npm run package",
+    "build:web": "cd web && npm run build",
+    "dev:ext": "cd extension && npm run watch",
+    "lint": "cd extension && npm run lint"
+  },
+  "license": "MIT",
+  "engines": { "node": ">=18" }
+}
