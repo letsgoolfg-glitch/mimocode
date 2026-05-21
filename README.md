@@ -72,7 +72,7 @@ code --install-extension mimo-code-0.1.0.vsix
 
 ### Build from Source
 ```bash
-git clone https://github.com/reyn/mimocode.git
+git clone https://github.com/letsgoolfg-glitch/mimocode.git
 cd mimocode
 cd extension && npm install && npm run package
 code --install-extension mimo-code-0.1.0.vsix

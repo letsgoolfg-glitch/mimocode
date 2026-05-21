@@ -3,7 +3,7 @@
 **Project:** MiMoCode
 **Category:** Developer Tools / IDE Extension
 **License:** MIT
-**GitHub:** https://github.com/reyn/mimocode
+**GitHub:** https://github.com/letsgoolfg-glitch/mimocode
 **Live Demo:** https://web-ruby-tau-77.vercel.app
 
 ---
@@ -107,7 +107,7 @@ MiMoCode solves this with **5 MiMo models** working together:
 
 ```bash
 # From source
-git clone https://github.com/reyn/mimocode.git
+git clone https://github.com/letsgoolfg-glitch/mimocode.git
 cd mimocode/extension
 npm install && npm run package
 code --install-extension mimo-code-0.1.0.vsix

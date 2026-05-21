@@ -141,7 +141,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-medium transition-colors">
               <Zap className="w-4 h-4" /> Install VSIX
             </a>
-            <a href="https://github.com/reyn/mimocode"
+            <a href="https://github.com/letsgoolfg-glitch/mimocode"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-white/10 hover:border-white/20 text-gray-300 hover:text-white font-medium transition-colors">
               <Code2 className="w-4 h-4" /> View Source
             </a>
@@ -233,7 +233,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-medium transition-colors">
               Get API Key <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://github.com/reyn/mimocode"
+            <a href="https://github.com/letsgoolfg-glitch/mimocode"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-white/10 hover:border-white/20 text-gray-300 hover:text-white font-medium transition-colors">
               <Code2 className="w-4 h-4" /> Star on GitHub
             </a>
@@ -249,7 +249,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-600">
           <span>MiMoCode © 2026 · MIT License</span>
           <div className="flex items-center gap-4">
-            <a href="https://github.com/reyn/mimocode" className="hover:text-gray-400 transition-colors">GitHub</a>
+            <a href="https://github.com/letsgoolfg-glitch/mimocode" className="hover:text-gray-400 transition-colors">GitHub</a>
             <a href="https://mimo.xiaomi.com" className="hover:text-gray-400 transition-colors">MiMo</a>
             <a href="https://platform.xiaomimimo.com" className="hover:text-gray-400 transition-colors">API Platform</a>
           </div>
