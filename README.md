@@ -4,6 +4,9 @@
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![VS Code](https://img.shields.io/badge/VS%20Code-%3E%3D1.85-blue)
+[![Landing Page](https://img.shields.io/badge/%F0%9F%8C%90-Landing%20Page-purple)](https://web-ruby-tau-77.vercel.app)
+
+🌐 **[Live Landing Page](https://web-ruby-tau-77.vercel.app)**
 
 ## Features
 
